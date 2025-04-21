@@ -10,7 +10,7 @@ jobs:
   cancel_previous:
     runs-on: ubuntu-latest
     steps:
-      - uses: styfle/cancel-workflow-action@0.12.0
+      - uses: styfle/cancel-workflow-action@01ce38bf961b4e243a6342cbade0dbc8ba3f0432 # 0.12.0
         with:
           workflow_id: ${{ github.event.workflow.id }}
 
@@ -18,11 +18,11 @@ jobs:
     needs: cancel_previous
     runs-on: macos-14
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: "15.2"
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - name: Build
@@ -34,12 +34,12 @@ jobs:
     needs: cancel_previous
     runs-on: ubuntu-latest
     steps:
-      - uses: sersoft-gmbh/swifty-linux-action@v3
+      - uses: sersoft-gmbh/swifty-linux-action@577251f82ce4f38e1ae770530f0b64305502a5fa # v3.0.1
         with:
           release-version: "5.9.2"
           github-token: ${{secrets.GITHUB_TOKEN}}
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - name: Build
@@ -51,10 +51,10 @@ jobs:
     needs: cancel_previous
     runs-on: windows-latest
     steps:
-      - uses: SwiftyLab/setup-swift@latest
+      - uses: SwiftyLab/setup-swift@44fd9859001e5b9538d023eb7d8d9106c6ea7659 # v1.10.0
         with:
           swift-version: "5.10"
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
       - name: Build
         run: swift build
       #
@@ -75,11 +75,11 @@ jobs:
           wget https://github.com/biscuitehh/yeetd/releases/download/1.0/yeetd-normal.pkg
           sudo installer -pkg yeetd-normal.pkg -target /
           yeetd &
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: "15.2"
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - run: xcodebuild -scheme Segment test -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 15'
@@ -88,11 +88,11 @@ jobs:
     needs: cancel_previous
     runs-on: macos-14
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: "15.2"
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - run: xcodebuild -scheme Segment test -sdk appletvsimulator -destination 'platform=tvOS Simulator,name=Apple TV'
@@ -101,11 +101,11 @@ jobs:
     needs: cancel_previous
     runs-on: macos-14
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: "15.2"
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - run: xcodebuild -scheme Segment test -sdk watchsimulator -destination 'platform=watchOS Simulator,name=Apple Watch Series 9 (45mm)'
@@ -114,11 +114,11 @@ jobs:
     needs: cancel_previous
     runs-on: macos-14
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: "15.2"
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - run: defaults write com.apple.dt.Xcode AllowUnsupportedVisionOSHost -bool YES
@@ -131,11 +131,11 @@ jobs:
     needs: cancel_previous
     runs-on: macos-14
     steps:
-      - uses: maxim-lobanov/setup-xcode@v1
+      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd # v1.6.0
         with:
           xcode-version: "15.2"
-      - uses: actions/checkout@v2
-      - uses: webfactory/ssh-agent@v0.8.0
+      - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
+      - uses: webfactory/ssh-agent@d4b9b8ff72958532804b70bbe600ad43b36d5f2e # v0.8.0
         with:
           ssh-private-key: ${{ secrets.SOVRAN_SSH_KEY }}
       - name: build for ios simulator
